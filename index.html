@@ -35,6 +35,34 @@
       var request = gapi.client.sheets.spreadsheets.values.get(params);
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
+         var tableKoUHtarDar = document.getElementById("UserTable");
+        var values = response.result.values;
+    var i ;
+    for(i = 1; i< values.length; i++){
+    var rowCreate = document.createElement('tr');
+    var g;
+    for(g = 0; g < 4; g++)
+    {
+        var tdCreate =  rowCreate.insertCell(g);
+        if(g == 0)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }
+        if(g == 1)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }  
+        if(g == 2)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }   
+        if(g == 3)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        } 
+    }  
+    tableKoUHtarDar.appendChild(rowCreate);
+}
         console.log(response.result.values);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
