@@ -61,7 +61,7 @@
     for(i = values.length -1; i>0 ; i--){
     var rowCreate = document.createElement('tr');
     var g;
-    for(g = 0; g < 6; g++)
+    for(g = 0; g < 7; g++)
     {
         var tdCreate =  rowCreate.insertCell(g);
         if(g == 0)
@@ -88,6 +88,10 @@
         {
             tdCreate.innerHTML =values[i][g] ;
         } 
+         if(g == 6)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }
     }  
     tableKoUHtarDar.appendChild(rowCreate);
 }
