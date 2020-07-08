@@ -61,7 +61,7 @@
     for(i = values.length -1; i>0 ; i--){
     var rowCreate = document.createElement('tr');
     var g;
-    for(g = 0; g < 7; g++)
+    for(g = 0; g < 8; g++)
     {
         var tdCreate =  rowCreate.insertCell(g);
         if(g == 0)
@@ -89,6 +89,10 @@
             tdCreate.innerHTML =values[i][g] ;
         } 
          if(g == 6)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }
+               if(g == 7)
         {
             tdCreate.innerHTML =values[i][g] ;
         }
@@ -151,7 +155,8 @@
 <table ID="UserTable">
     <tr>
       <th>UserID</th>
-      <th>PhoneNo</th>
+       <th>User Name</th>
+      <th>Phone No</th>
       <th>Product</th>
       <th>Quantity</th>
        <th>Amount</th>
