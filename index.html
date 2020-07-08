@@ -1,5 +1,25 @@
 <html>
-  <head></head>
+  <head>
+  <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: auto;
+      min-width: 50%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+  </head>
+  
   <body>
     <!--
     BEFORE RUNNING:
@@ -63,7 +83,7 @@
     }  
     tableKoUHtarDar.appendChild(rowCreate);
 }
-        console.log(response.result.values[2]);
+        console.log(response.result.values);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
