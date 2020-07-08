@@ -58,7 +58,7 @@
          var tableKoUHtarDar = document.getElementById("UserTable");
         var values = response.result.values;
     var i ;
-    for(i = 1; i< values.length; i++){
+    for(i = values.length -1; i>0 ; i--){
     var rowCreate = document.createElement('tr');
     var g;
     for(g = 0; g < 4; g++)
