@@ -35,7 +35,7 @@
       var request = gapi.client.sheets.spreadsheets.values.get(params);
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
-        console.log(response.result);
+        console.log(response.result.values);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
@@ -87,6 +87,16 @@
       onload="this.onload=function(){};handleClientLoad()"
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
+    <h2>Welcome!</h2>
+<table ID="UserTable">
+    <tr>
+      <th>UserID</th>
+      <th>UserName</th>
+      <th>PhoneNo</th>
+      <th>Address</th>
+    </tr>
+      
+  </table><br>
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
   </body>
