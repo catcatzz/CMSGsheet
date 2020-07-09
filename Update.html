@@ -51,16 +51,7 @@
         // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
        // dateTimeRenderOption: '',  // TODO: Update placeholder value.
       };
-      function UpdateGoogleSheet()
-      {
-        var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response)
-       {
-        var tableKoUHtarDar = document.getElementById("UserTable");
-        var values = response.result.values;
-        console.log(response.result.values);
-      })
-      }
+
       var request = gapi.client.sheets.spreadsheets.values.get(params);
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
@@ -135,7 +126,16 @@
     function handleSignInClick(event) {
       gapi.auth2.getAuthInstance().signIn();
     }
-
+      function UpdateGoogleSheet()
+      {
+        var request = gapi.client.sheets.spreadsheets.values.get(params);
+      request.then(function(response)
+       {
+        var tableKoUHtarDar = document.getElementById("UserTable");
+        var values = response.result.values;
+        console.log(response.result.values);
+      })
+      };
     function handleSignOutClick(event) {
       gapi.auth2.getAuthInstance().signOut();
     }
