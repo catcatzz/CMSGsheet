@@ -127,8 +127,8 @@
         var tableKoUHtarDar = document.getElementById("UserTable");
         var values = response.result.values;
         console.log(response.result.values);
+        
         let dataArray = response.result.values;
-        });
         var UpdateParams = {
         spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
         range: 'Data!E2',
@@ -138,6 +138,8 @@
 
        const updateRequest = gapi.spreadsheets.values.update(UpdateParams);
         console.log(updateRequest);
+        });
+        
       };
     function handleSignOutClick(event) {
       gapi.auth2.getAuthInstance().signOut();
