@@ -35,21 +35,10 @@
     <script>
     function makeApiCall() {
       var params = {
-        // The ID of the spreadsheet to retrieve data from.
-        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  // TODO: Update placeholder value.
 
-        // The A1 notation of the values to retrieve.
-        range: 'Sheet1',  // TODO: Update placeholder value.
+        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
+        range: 'Sheet1'
 
-        // How values should be represented in the output.
-        // The default render option is ValueRenderOption.FORMATTED_VALUE.
-       // valueRenderOption: '',  // TODO: Update placeholder value.
-
-        // How dates, times, and durations should be represented in the output.
-        // This is ignored if value_render_option is
-        // FORMATTED_VALUE.
-        // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-       // dateTimeRenderOption: '',  // TODO: Update placeholder value.
       };
 
       var request = gapi.client.sheets.spreadsheets.values.get(params);
@@ -126,22 +115,19 @@
     function handleSignInClick(event) {
       gapi.auth2.getAuthInstance().signIn();
     }
-      function UpdateGoogleSheet()
+    function UpdateGoogleSheet()
       {
         var params = {
-       
-        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',       
+        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
         range: 'Sheet1'
-
-      };
-
-        var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response)
-       {
+        };
+        const request = gapi.client.sheets.spreadsheets.values.get(params);
+        request.then(function(response)
+        {
         var tableKoUHtarDar = document.getElementById("UserTable");
         var values = response.result.values;
         console.log(response.result.values);
-      })
+        });
       };
     function handleSignOutClick(event) {
       gapi.auth2.getAuthInstance().signOut();
