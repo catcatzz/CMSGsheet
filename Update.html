@@ -127,13 +127,14 @@
         var tableKoUHtarDar = document.getElementById("UserTable");
         var values = response.result.values;
         console.log(response.result.values);
-
+        
+       
 
         var UpdateParams = {
         spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
         range: 'Data!E2',
         valueInputOption: 'USER_ENTERED',
-        resource:{values:response.result.values} 
+        resource:{values:response.result.values[0]} 
         };
 
        const updateRequest = gapi.spreadsheets.values.update(UpdateParams);
