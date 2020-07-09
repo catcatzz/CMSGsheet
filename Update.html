@@ -36,7 +36,7 @@
     function makeApiCall() {
       var params = {
 
-        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
+        spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  
         range: 'Sheet1'
 
       };
@@ -118,7 +118,7 @@
     function UpdateGoogleSheet()
       {
         var params = {
-        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
+        spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  
         range: 'Sheet1'
         };
         const request = gapi.client.sheets.spreadsheets.values.get(params);
@@ -131,14 +131,14 @@
        
 
         var UpdateParams = {
-        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
-        range: 'F2',
+        spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  
+        range: 'A2',
         valueInputOption: 'USER_ENTERED',
        
         };
         var valueRangeBody = {
-          response:{"values": [["AA","BB","CC"],["DD","EE","FF"]]}
-        };
+        "values": [["AA","BB","CC","A","B","C","D","E","F","G"],["DD","EE","FF","D","E","F","G","H","I","J"]]
+         };
 
         var updateRequest = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
         updateRequest.then(function(resp){
