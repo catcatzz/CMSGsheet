@@ -137,8 +137,13 @@
         response:{"values": [["AA","BB","CC"], ["DD","EE","FF"]]}
         };
 
-       const updateRequest = gapi.spreadsheets.values.update(UpdateParams);
-        console.log(updateRequest);
+       var updateRequest = gapi.spreadsheets.values.update(UpdateParams);
+        updateRequest.then(function(resp){
+          console.log(resp.result);
+        }),function(reason){
+          console.error('error '+ reason.result.error.message);
+        }
+       
         
         });
        
@@ -155,7 +160,7 @@
     <h2>Welcome!</h2>
 <table ID="UserTable">
     <tr>
-      <th>UserID</th>
+      <th>UserID1</th>
       <th>UserName</th>
       <th>PhoneNo</th>
       <th>Address</th>
