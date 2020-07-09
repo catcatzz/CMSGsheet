@@ -129,14 +129,12 @@
         console.log(response.result.values);
         let dataArray = response.result.values.map;
         });
-        var pets = new Array ( );
-        pets[0] = new Array ( "Sheba", 13, "cat" );
-        pets[1] = new Array ( "Jasper", 12, "dog" );
+        let activities = [['Work', 9],['Eat', 1], ['Commute', 2], ['Play Game', 1], ['Sleep', 7]];
         var UpdateParams = {
         spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
         range: 'Data!E2',
         valueInputOption: 'USER_ENTERED',
-        resource:{values:pets} 
+        resource:{values:activities} 
         };
 
        const updateRequest = gapi.spreadsheets.values.update(UpdateParams);
