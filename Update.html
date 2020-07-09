@@ -129,12 +129,14 @@
         console.log(response.result.values);
         let dataArray = response.result.values.map;
         });
-        var cars = ["Saab", "Volvo", "BMW"];
+        var pets = new Array ( );
+        pets[0] = new Array ( "Sheba", 13, "cat" );
+        pets[1] = new Array ( "Jasper", 12, "dog" );
         var UpdateParams = {
         spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',  
         range: 'Data!E2',
         valueInputOption: 'USER_ENTERED',
-        resource:{values:cars} 
+        resource:{values:pets} 
         };
 
        const updateRequest = gapi.spreadsheets.values.update(UpdateParams);
