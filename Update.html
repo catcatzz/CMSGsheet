@@ -140,7 +140,7 @@
           response:{"values": [["AA","BB","CC"],["DD","EE","FF"]]}
         };
 
-       var updateRequest = gapi.spreadsheets.values.update(UpdateParams,valueRangeBody);
+        var updateRequest = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
         updateRequest.then(function(resp){
           console.log(resp.result);
         }),function(reason){
