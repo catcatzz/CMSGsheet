@@ -96,9 +96,10 @@
         {
             tdCreate.innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+y +">Accept</button>" ;
         }
-        y++;
+       
     }  
     tableKoUHtarDar.appendChild(rowCreate);
+    y++;
 }
         console.log(response.result.values);
       }, function(reason) {
