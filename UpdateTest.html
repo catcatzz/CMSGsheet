@@ -131,7 +131,7 @@
  
        
         if(response.result.updatedColumns == '1'){
-          document.getElementById("UserTable").deleteRow(split[1]+1);
+          document.getElementById("UserTable").deleteRow(parseInt(split[1])+1);
         }
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
