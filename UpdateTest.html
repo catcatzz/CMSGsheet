@@ -124,6 +124,10 @@
       request.then(function(response) {
         
         console.log(response.result.updatedColumns);
+        var tableKoUHtarDar = document.getElementById("UserTable");
+        if(response.result.updatedColumns == '1'){
+          tableKoUHtarDar[0][parseInt(clicked_id)].innerHTML = "2";
+        }
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
