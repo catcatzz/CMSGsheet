@@ -126,7 +126,7 @@
         console.log(response.result);
         var tableKoUHtarDar = document.getElementById("UserTable").row[valuesIndex].cells;
         if(response.result.updatedColumns == '1'){
-          tableKoUHtarDar[9].innerHTML = "2";
+          tableKoUHtarDar[9].innerHTML = '2';
         }
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
