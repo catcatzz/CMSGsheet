@@ -104,12 +104,13 @@
       });
     }
     function UpdateCMS(clicked_id) {
+      var valuesIndex = clicked_id +1;
       var params = {
         // The ID of the spreadsheet to update.
         spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  // TODO: Update placeholder value.
 
         // The A1 notation of the values to update.
-        range: 'J'+clicked_id+1,  // TODO: Update placeholder value.
+        range: 'J'+valuesIndex,  // TODO: Update placeholder value.
 
         // How the input data should be interpreted.
         valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
