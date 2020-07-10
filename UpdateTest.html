@@ -13,6 +13,21 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
     <script>
+          function makeApiCall() {
+      var params = {       
+        spreadsheetId: '1xxgroKjePsA86vEch7dLybSdh_dDEo09n-XjXx7m2b0',     
+        range: 'Sheet1',  
+
+      };
+
+      var request = gapi.client.sheets.spreadsheets.values.get(params);
+      request.then(function(response) {
+      
+        console.log(response.result);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+      });
+    }
     function UpdateCMS() {
       var params = {
         // The ID of the spreadsheet to update.
