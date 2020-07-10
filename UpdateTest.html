@@ -124,7 +124,7 @@
       request.then(function(response) {
         
         console.log(response.result);
-        var tableKoUHtarDar = document.getElementById("UserTable").row[valuesIndex].cells;
+        var tableKoUHtarDar = document.getElementById("UserTable").rows[valuesIndex].cells;
         if(response.result.updatedColumns == '1'){
           tableKoUHtarDar[9].innerHTML = '2';
         }
