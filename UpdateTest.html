@@ -123,7 +123,7 @@
       var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
       request.then(function(response) {
         
-        console.log(response.result.updatedColumns);
+        console.log(response.result);
         var tableKoUHtarDar = document.getElementById("UserTable");
         if(response.result.updatedColumns == '1'){
           tableKoUHtarDar[0][parseInt(clicked_id)].innerHTML = "2";
