@@ -123,11 +123,9 @@
       var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
       request.then(function(response) {
         
-        console.log(response.result);
- 
-        var x = document.getElementById("UserTable").rows[valuesIndex].cells;
+        console.log(response.result);       
         if(response.result.updatedColumns == '1'){
-          x[9].innerHTML = "2";
+          makeApiCall();
         }
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
