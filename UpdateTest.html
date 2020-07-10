@@ -93,7 +93,7 @@
         }
         if(g == 10)
         {
-            tdCreate.innerHTML ="<button type='button' style='color:white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id=Accept"+ [i] +">Accept</button>" ;
+            tdCreate.innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id=Accept"+ [i] +">Accept</button>" ;
         }
     }  
     tableKoUHtarDar.appendChild(rowCreate);
@@ -103,20 +103,20 @@
         console.error('error: ' + reason.result.error.message);
       });
     }
-    function UpdateCMS() {
+    function UpdateCMS(clicked_id) {
       var params = {
         // The ID of the spreadsheet to update.
         spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  // TODO: Update placeholder value.
 
         // The A1 notation of the values to update.
-        range: 'A2',  // TODO: Update placeholder value.
+        range: 'J'+clicked_id+1,  // TODO: Update placeholder value.
 
         // How the input data should be interpreted.
         valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
       };
 
       var valueRangeBody = {
-        "values": [["AA","BB","CC","A","B","C","D","E","F","G"],["DD","EE","FF","D","E","F","G","H","I","J"]]
+        "values": [["2"]]
       };
 
       var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
