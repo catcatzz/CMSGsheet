@@ -125,6 +125,7 @@
         
         console.log(response.result);       
         if(response.result.updatedColumns == '1'){
+          var tableKoUHtarDar = document.getElementById("UserTable").remove();
           makeApiCall();
         }
       }, function(reason) {
