@@ -107,7 +107,8 @@
       });
     }
     function UpdateCMS(clicked_id) {
-      var valuesIndex = parseInt(clicked_id) +1;
+      var split = clicked_id.split(",");
+      var valuesIndex = parseInt(split[0]) +1;
       var params = {
         // The ID of the spreadsheet to update.
         spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  // TODO: Update placeholder value.
@@ -130,7 +131,7 @@
  
        
         if(response.result.updatedColumns == '1'){
-          document.getElementById("UserTable").deleteRow(0);
+          document.getElementById("UserTable").deleteRow(split[1]);
         }
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
