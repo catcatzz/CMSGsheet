@@ -124,18 +124,22 @@
         "values": [["2"]]
       };
 
-      var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
-      request.then(function(response) {
-        
-        console.log(response.result);
- 
-       
-        if(response.result.updatedColumns == '1'){
-          document.getElementById("UserTable").deleteRow(parseInt(split[1])+1);
+      var batchUpdateRequest = {"requests": [
+    {
+      "deleteDimension": {
+        "range": {
+          "sheetId": '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',
+          "dimension": "ROWS",
+          "startIndex": 1,
+          "endIndex": 2
         }
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
+      }
+    }]}
+    gapi.client.sheets.spreadsheets.batchUpdate({spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',resource: batchUpdateRequest
+}).then((response) => {
+  console.log(response.result);
+});
+     
     }
 
     function initClient() {
