@@ -142,7 +142,7 @@
     function UpdateCMS(clicked_id) {
       var split = clicked_id.split(",");
       var valuesIndex = parseInt(split[0]) +1;
-      var getRowIndex = parseInt(split[1]);
+      var getRowIndex = parseInt(split[1])+1;
       var GetTable = document.getElementById("UserTable");
       var updateValuesRange = new Array();
       
@@ -157,7 +157,7 @@
         spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  // TODO: Update placeholder value.
 
         // The A1 notation of the values to update.
-        range: 'A'+valuesIndex,  // TODO: Update placeholder value.
+        range: 'J'+valuesIndex,  // TODO: Update placeholder value.
 
         // How the input data should be interpreted.
         valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
