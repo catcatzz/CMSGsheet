@@ -146,42 +146,6 @@
       var GetTable = document.getElementById("UserTable");
       var updateValuesRange = new Array();
       
-
-
-
-
-
-
-      var params = {
-        // The ID of the spreadsheet to update.
-        spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',  // TODO: Update placeholder value.
-
-        // The A1 notation of the values to update.
-        range: 'J'+valuesIndex,  // TODO: Update placeholder value.
-
-        // How the input data should be interpreted.
-        valueInputOption: 'USER_ENTERED',  // TODO: Update placeholder value.
-      };
-
-      var valueRangeBody = {
-        "values": [["2"]]
-      };
-
-      var request = gapi.client.sheets.spreadsheets.values.update(params, valueRangeBody);
-      request.then(function(response) {
-        
-        console.log(response.result);
- 
-       
-        if(response.result.updatedColumns == '1'){
-          document.getElementById("UserTable").deleteRow(parseInt(split[1]));
-        }
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
-
-
-
       for(g = 0; g < 10; g++)
       {
         if(g == 9){
