@@ -145,7 +145,7 @@
       var getRowIndex = parseInt(split[1])+1;
       var GetTable = document.getElementById("UserTable");
       var updateValuesRange = new Array();
-      
+
       for(g = 0; g < 10; g++)
       {
         if(g == 9){
@@ -179,7 +179,7 @@
         console.error('error: ' + reason.result.error.message);
       });
 
-
+      DeleteARow(valuesIndex);
 
 
     }
