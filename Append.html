@@ -193,7 +193,7 @@
       DeleteARow(valuesIndex-1);
       var getTable = document.getElementById("UserTable");
       var rowIndexForLooping ;
-      var yy = 0;
+      var yy = 1;
       for(rowIndexForLooping = getTable.rows.length -1; rowIndexForLooping > 0 ; rowIndexForLooping--)
       {
         getTable.rows[yy].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[rowIndexForLooping] +","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy +",Decline>Decline</button>";
