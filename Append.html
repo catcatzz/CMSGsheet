@@ -191,7 +191,14 @@
       });
 
       DeleteARow(valuesIndex-1);
-     new makeApiCall();
+      var getTable = document.getElementById("UserTable");
+      var rowIndexForLooping ;
+      var yy = 0;
+      for(rowIndexForLooping = getTable.rows.length -1; rowIndexForLooping>0 ; rowIndexForLooping--)
+      {
+        getTable.rows[rowIndexForLooping].cells.item(9).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+y +",Decline>Decline</button>";
+        yy++;
+      }
 
     }
 
