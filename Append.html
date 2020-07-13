@@ -146,7 +146,7 @@
       var GetTable = document.getElementById("UserTable");
       var updateValuesRange = new Array();
       var today = new Date();
-      var date = today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear()+' '+ today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
       for(g = 0; g < 11; g++)
       {
         if(g == 9){
