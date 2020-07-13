@@ -184,7 +184,7 @@
       request.then(function(response) {
         if(response.result.updates.updatedRows == '1')
         {
-          document.getElementById("UserTable").deleteRow(parseInt(split[1])+1);
+          document.getElementById("UserTable").deleteRow(parseInt(split[1]));
           var i ;
           var yy = 1;
           for(i = getTable.rows.length -1; i > 0 ; i--)
