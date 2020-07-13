@@ -182,8 +182,16 @@
       var getTable = document.getElementById("UserTable");
       var request = gapi.client.sheets.spreadsheets.values.append(appendParam, AppendvalueRangeBody);
       request.then(function(response) {
-        if(response.result.updates.updatedRows == '1'){
+        if(response.result.updates.updatedRows == '1')
+        {
           document.getElementById("UserTable").deleteRow(parseInt(split[1])+1);
+          var i ;
+          var yy = 1;
+          for(i = getTable.rows.length -1; i > 0 ; i--)
+          {
+            getTable.rows[yy].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Acceptz</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Declinez</button>";
+            yy++;
+          }
         }
         console.log(getTable.rows.length);
       }, function(reason) {
@@ -192,13 +200,7 @@
 
       DeleteARow(valuesIndex-1);
      
-      var i ;
-      var yy = 1;
-      for(i = getTable.rows.length -1; i > 0 ; i--)
-      {
-        getTable.rows[yy].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Acceptz</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Declinez</button>";
-        yy++;
-      }
+      
 
     }
 
