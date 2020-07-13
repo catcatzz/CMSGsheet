@@ -32,7 +32,7 @@
        https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
     -->
     <script>
-          function makeApiCall() {
+      function makeApiCall() {
       var params = {       
         spreadsheetId: '1HVGmtL--v9a6Ka-aQOw7_YPOxDlUfE3gQUJ9AIWFYqU',     
         range: 'Sheet1',  
@@ -194,9 +194,9 @@
       var getTable = document.getElementById("UserTable");
       var rowIndexForLooping ;
       var yy = 0;
-      for(yy = getTable.rows.length -1; yy>0 ; yy--)
+      for(rowIndexForLooping = getTable.rows.length -1; rowIndexForLooping>0 ; rowIndexForLooping--)
       {
-        getTable.rows[yy].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy +",Decline>Decline</button>";
+        getTable.rows[rowIndexForLooping].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy +",Decline>Decline</button>";
         rowIndexForLooping++;
       }
 
