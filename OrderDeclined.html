@@ -33,13 +33,19 @@
     -->
     <script>
       function RedirectPaging() {
-  var x = document.getElementById("mySelect").value;
+  var x = document.getElementById("NavigateToPages").value;
   if(x = "2")
   {
   	 location.replace("https://catcatzz.github.io/CMSGsheet/OrderAccepted.html");
   }  
   if(x = "1"){
     location.replace("https://catcatzz.github.io/CMSGsheet/OrderReviewPage.html");
+  }
+  if(x = "3"){
+    location.replace("https://catcatzz.github.io/CMSGsheet/OrderDeclined.html");
+  }
+  if(x = "4"){
+    location.replace("https://catcatzz.github.io/CMSGsheet/OrderHistory.html");
   }
  
 }
@@ -253,7 +259,7 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
      <h2>Welcome!</h2>
-     <select id="mySelect" onchange="RedirectPaging()">
+     <select id="NavigateToPages" onchange="RedirectPaging()">
       <option value="1">Order Review</option>
       <option value="2">Order Accepted</option>
       <option value="3">Order Declined</option>
