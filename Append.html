@@ -197,7 +197,7 @@
       for(rowIndexForLooping = getTable.rows.length -1; rowIndexForLooping>0 ; rowIndexForLooping--)
       {
         getTable.rows[rowIndexForLooping].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [rowIndexForLooping]+","+yy +",Decline>Decline</button>";
-        rowIndexForLooping++;
+        yy++;
       }
 
     }
