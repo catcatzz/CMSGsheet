@@ -66,7 +66,7 @@
     for(i = values.length -1; i>0 ; i--){
     var rowCreate = document.createElement('tr');
    
-    for(g = 0; g < 11; g++)
+    for(g = 0; g < 12; g++)
     {
         var tdCreate =  rowCreate.insertCell(g);
         if(g == 0)
@@ -107,9 +107,13 @@
         }
         if(g == 9)
         {
-            tdCreate.innerHTML =values[i][g] ;
+            tdCreate.innerHTML ="<input type='text' runat='server' id='StartDate' name='sel_date' style='background-color: #FFFFCC;'' class='DefaultBackground' readonly='readonly'/>" ;
         }
         if(g == 10)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }
+        if(g == 11)
         {
             tdCreate.innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+y+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+y +",Decline>Decline</button>" ;
         }
@@ -284,6 +288,7 @@
        <th>Address</th>
        <th>Order Date</th>
        <th>Remark</th>
+       <th>Delivery Date</th>
         <th>Status</th>   
         <th>Action</th>   
 
