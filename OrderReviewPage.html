@@ -171,7 +171,7 @@
       var GetTable = document.getElementById("UserTable");
       var updateValuesRange = new Array();
       var today = new Date();
-      var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
+      var date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
       for(g = 0; g < 12; g++)
       {
         if(g == 10){
@@ -184,8 +184,12 @@
         else if (g== 7){
           
         }
+        else if (g == 9){
+          var x = document.getElementById(split[0]+","+split[1]+",DeliveryDate").value;
+          updateValuesRange.push(x);
+        }
         else{
-          updateValuesRange.push(GetTable.rows[getRowIndex].cells[g].innerHTML)
+          updateValuesRange.push(GetTable.rows[getRowIndex].cells[g].innerHTML);
         }
      
       }
