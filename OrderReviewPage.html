@@ -1,5 +1,9 @@
 <html>
   <head>
+    <link rel="stylesheet" href="JS/Datepicker/themes/ui-lightness/jquery.ui.all.css" />
+    <script src="js/jquery-2.1.4.js"></script>
+    <script src="js/Datepicker/ui/minified/jquery.ui.core.min.js"></script>
+    <script src="js/Datepicker/ui/minified/jquery.ui.datepicker.min.js"></script>
   <style>
     table {
       font-family: arial, sans-serif;
@@ -20,17 +24,7 @@
     </style>
   </head>
   <body>
-    <!--
-    BEFORE RUNNING:
-    ---------------
-    1. If not already done, enable the Google Sheets API
-       and check the quota for your project at
-       https://console.developers.google.com/apis/api/sheets
-    2. Get access keys for your application. See
-       https://developers.google.com/api-client-library/javascript/start/start-js#get-access-keys-for-your-application
-    3. For additional information on authentication, see
-       https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
-    -->
+
     <script>
      function RedirectPaging() {
   var x = document.getElementById("NavigateToPages").value;
@@ -107,7 +101,7 @@
         }
         if(g == 9)
         {
-            tdCreate.innerHTML ="<input type='text' runat='server' id='StartDate' name='sel_date' style='background-color: #FFFFCC;'' class='DefaultBackground' readonly='readonly'/>" ;
+            tdCreate.innerHTML ="<input type='text' runat='server' id='"+ [i]+","+y+",DeliveryDate' name='sel_date' style='background-color: #FFFFCC;'' class='DefaultBackground' readonly='readonly'/>" ;
         }
         if(g == 10)
         {
@@ -126,6 +120,12 @@
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
+    $(function() {
+		$(".DefaultBackground").datepicker();
+                $(".DefaultBackground").datepicker("option", "dateFormat", "yy-mm-dd");
+                $(".DefaultBackground").datepicker("option", "changeMonth", true);
+                $(".DefaultBackground").datepicker("option", "changeYear", true);
+            });
     }
     function DeleteARow(startIndexNo) {
       var params = {
@@ -186,14 +186,10 @@
         spreadSheetIDValues = "1IJMpuhD9_BDoMfeuuBUKtmpxMmPOUZ_9gFV4nYWXEJ0";
       }
 
-      var appendParam = {
-       
-        spreadsheetId: spreadSheetIDValues,  
-      
-        range: 'Sheet1', 
-      
-        valueInputOption: 'USER_ENTERED',  
-       
+      var appendParam = {       
+        spreadsheetId: spreadSheetIDValues,      
+        range: 'Sheet1',      
+        valueInputOption: 'USER_ENTERED',       
         insertDataOption: 'INSERT_ROWS',  
       };
 
@@ -226,14 +222,8 @@
     }
 
     function initClient() {
-      var API_KEY = 'AIzaSyDci27Yunl538epN2GMj2NMDEbY9KOLD2Y';  // TODO: Update placeholder with desired API key.
-
-      var CLIENT_ID = '621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com';  // TODO: Update placeholder with desired client ID.
-
-      // TODO: Authorize using one of the following scopes:
-      //   'https://www.googleapis.com/auth/drive'
-      //   'https://www.googleapis.com/auth/drive.file'
-      //   'https://www.googleapis.com/auth/spreadsheets'
+      var API_KEY = 'AIzaSyDci27Yunl538epN2GMj2NMDEbY9KOLD2Y';  
+      var CLIENT_ID = '621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com';  
       var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 
       gapi.client.init({
@@ -276,15 +266,7 @@
   <option value="3">Order Declined</option>
   <option value="4">Order History</option>
 </select>
-<script>
-  $(function() {
-		$("#StartDate").datepicker();
-                $("#StartDate").datepicker("option", "dateFormat", "yy-mm-dd");
 
-                $("#StartDate").datepicker("option", "changeMonth", true);
-                $("#StartDate").datepicker("option", "changeYear", true);
-            });
-			</script>
 <table ID="UserTable">
     <tr>
       <th>UserID</th>
