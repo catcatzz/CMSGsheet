@@ -172,10 +172,10 @@
       var updateValuesRange = new Array();
       var today = new Date();
       var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
-      for(g = 0; g < 11; g++)
+      for(g = 0; g < 12; g++)
       {
         if(g == 9){
-          var valueRange ="2";
+          var valueRange ="4";
           if(split[2] == "Decline"){
             valueRange = "0";
           }
