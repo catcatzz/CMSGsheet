@@ -174,7 +174,7 @@
       var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
       for(g = 0; g < 12; g++)
       {
-        if(g == 10){
+        if(g == 9){
           var valueRange ="2";
           if(split[2] == "Decline"){
             valueRange = "0";
@@ -182,9 +182,7 @@
           updateValuesRange.push(valueRange);
         }
 
-        else if (g == 10){
-          updateValuesRange.push(date);
-        }
+
         else{
           updateValuesRange.push(GetTable.rows[getRowIndex].cells[g].innerHTML)
         }
