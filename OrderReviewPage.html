@@ -276,7 +276,15 @@
   <option value="3">Order Declined</option>
   <option value="4">Order History</option>
 </select>
+<script>
+  $(function() {
+		$("#StartDate").datepicker();
+                $("#StartDate").datepicker("option", "dateFormat", "yy-mm-dd");
 
+                $("#StartDate").datepicker("option", "changeMonth", true);
+                $("#StartDate").datepicker("option", "changeYear", true);
+            });
+			</script>
 <table ID="UserTable">
     <tr>
       <th>UserID</th>
