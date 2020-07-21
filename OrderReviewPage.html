@@ -1,9 +1,8 @@
 <html>
   <head>
-    <link rel="stylesheet" href="JS/Datepicker/themes/ui-lightness/jquery.ui.all.css" />
-    <script src="js/jquery-2.1.4.js"></script>
-    <script src="js/Datepicker/ui/minified/jquery.ui.core.min.js"></script>
-    <script src="js/Datepicker/ui/minified/jquery.ui.datepicker.min.js"></script>
+    <title>Order Review</title>
+    <link href="dist/the-datepicker.css" rel="stylesheet" />
+<script src="dist/the-datepicker.js"></script>
   <style>
     table {
       font-family: arial, sans-serif;
@@ -26,6 +25,7 @@
   <body>
 
     <script>
+  
      function RedirectPaging() {
   var x = document.getElementById("NavigateToPages").value;
   if(x == "2")
@@ -101,7 +101,8 @@
         }
         if(g == 9)
         {
-            tdCreate.innerHTML ="<input type='text' runat='server' id='"+ [i]+","+y+",DeliveryDate' name='sel_date' style='background-color: #FFFFCC;'' class='DefaultBackground' readonly='readonly'/>" ;
+          
+            tdCreate.innerHTML ="<input type='text' id='"+ [i]+","+y+",DeliveryDate' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''> " ;
         }
         if(g == 10)
         {
@@ -120,12 +121,7 @@
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
-    $(function() {
-		$(".DefaultBackground").datepicker();
-                $(".DefaultBackground").datepicker("option", "dateFormat", "yy-mm-dd");
-                $(".DefaultBackground").datepicker("option", "changeMonth", true);
-                $(".DefaultBackground").datepicker("option", "changeYear", true);
-            });
+  
     }
     function DeleteARow(startIndexNo) {
       var params = {
@@ -150,12 +146,13 @@
 
       var request = gapi.client.sheets.spreadsheets.batchUpdate(params, batchUpdateSpreadsheetRequestBody);
       request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
+       
         console.log(response.result);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
     }
+
     function UpdateCMS(clicked_id) {
       var split = clicked_id.split(",");
       var valuesIndex = parseInt(split[0]) +1;
@@ -164,7 +161,7 @@
       var updateValuesRange = new Array();
       var today = new Date();
       var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
-      for(g = 0; g < 11; g++)
+      for(g = 0; g < 12; g++)
       {
         if(g == 10){
           var valueRange ="2";
@@ -173,7 +170,8 @@
           }
           updateValuesRange.push(valueRange);
         }
-        else if (g == 9){
+
+        else if (g == 10){
           updateValuesRange.push(date);
         }
         else{
@@ -216,9 +214,6 @@
       });
 
       DeleteARow(valuesIndex-1);
-     
-      
-
     }
 
     function initClient() {
@@ -260,6 +255,7 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
      <h2>Welcome!</h2>
+    
     <select id="NavigateToPages" onchange="RedirectPaging()">
   <option value="1">Order Review</option>
   <option value="2">Order Accepted</option>
@@ -285,6 +281,23 @@
     </tr>
       
   </table><br>
+  
+
+  Enter some text: <input type="text" class="hahagg" id="example2" name="txt" value="Hello" onchange="myFunction(this.id)">
+  <script>
+
+    const input = document.getElementsByClassName('DateClass');
+    const datepicker = new TheDatepicker.Datepicker(input[0]);
+    datepicker.render();
+
+    var today = new Date();
+    var date =today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
+
+    
+    datepicker.options.setInputFormat("j-n-20y");
+    datepicker.options.setMinDate(today);
+    </script>
+
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
     <button id="Updatebutton" onclick="UpdateCMS()">Update</button>
