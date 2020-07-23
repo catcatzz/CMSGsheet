@@ -1,0 +1,72 @@
+<!doctype html> 
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="google-signin-client_id" content="621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com">
+<title>Login</title>
+
+</head>
+<body> 
+<div id="cat">
+
+<img src="1.jpg" id='11' class="123" width="1150" height="200" alt="banner">
+
+<link href="aa.css" rel="stylesheet" type="text/css"/>
+
+
+<header><ul id="qwe" class="">
+  <li><a href="#" class="About_Us">#</a></li>
+  <li><a href="#">#</a></li>
+  <li><a href="#">#</a></li>    
+  <li><a href="#">#</a></li>    
+  <li><a href="#">#</a></li>	
+<li><a href="#" class="block">#</a></li>
+<li><a href="#">#</a></li>
+
+</ul> </header>
+
+<h2><font color="white">Welcome to Phaung Phaung Nate Ban Gong</font></h2> <hr>
+<form name="login" method="post"><div class="login">
+LOGIN HERE
+<div id="my-signin2"></div>
+</div> </form>
+<p class="normal"></p>
+<li><a href="#" onclick="handleSignOutClick()" class="block">LOGOUT</a></li>
+
+<p class="normal">
+</p>
+<script>
+     function handleSignOutClick(event) {
+     gapi.auth2.getAuthInstance().signOut();
+     location.reload();
+    return false;
+   }
+  function onSuccess(googleUser) {
+    document.getElementById('GoogleName').innerHTML = "Welcome "+ googleUser.getBasicProfile().getName();
+    document.getElementById('my-signin2').style.display = "none";
+    window.location.replace("https://catcatzz.github.io/CMSGsheet/OrderReviewPage.html");
+  }
+  function onFailure(error) {
+    console.log(error);
+  }
+  function renderButton() {
+    gapi.signin2.render('my-signin2', {
+      'scope': 'profile email',
+      'width': 240,
+      'height': 50,
+      'longtitle': true,
+      'theme': 'dark',
+      'onsuccess': onSuccess,
+      'onfailure': onFailure
+    });
+  }
+</script>
+
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+
+<footer>
+Page Created by: Kaung Htet Copyright &copy; <a href="www.gmail.com" class="footer">Myokaunghtet@gmail.com</a>!
+</footer>
+</div></body>
+</html>
