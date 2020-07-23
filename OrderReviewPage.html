@@ -299,7 +299,8 @@
 <br><br>
     <div style="background:url(background.jpg); height:auto;min-height: 500px;width: auto;"><br><br>
    <div style="height: auto;background-color: white;margin: auto;width: 95%; padding: 10px;border-radius: 20px;min-height: 380px;overflow-x:scroll ;">
-    <h2>Order Review</h2>
+    <p id="GoogleName"></p>
+    <h3>Order Review</h3>
    
    <select id="NavigateToPages" onchange="RedirectPaging()">
  <option value="1">Order Review</option>
@@ -338,6 +339,7 @@
 
   <script>
     function onSuccess(googleUser) {
+      document.getElementById('GoogleName').innerHTML = "Welcome "+ googleUser.getBasicProfile().getName();
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
     }
     function onFailure(error) {
