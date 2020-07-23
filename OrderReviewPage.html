@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Order Review</title>
- <meta name="google-signin-client_id" content="621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com.apps.googleusercontent.com">
+ <meta name="google-signin-client_id" content="621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com">
 <link href="dist/the-datepicker.css" rel="stylesheet" />
 <link rel="icon" href="pageIcon.png" type="image/gif" sizes="16x16">
 <script src="dist/the-datepicker.js"></script>
@@ -329,14 +329,13 @@
  
 
  Enter some text: <input type="text" class="hahagg" id="example2" name="txt" value="Hello">
-
+<div id="my-signin2"></div>
    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
-   <button id="Updatebutton" onclick="UpdateCMS()">Update</button>
+   
+</div>
+</div>
 
-</div>
-</div>
-<div id="my-signin2"></div>
   <script>
     function onSuccess(googleUser) {
       console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
