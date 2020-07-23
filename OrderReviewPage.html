@@ -182,7 +182,7 @@
           updateValuesRange.push(valueRange);
         }
         else if (g == 9){
-          var x = document.getElementById(valuesIndex+","+getRowIndex+",DeliveryDate").value;
+          var x = document.getElementById(split[0]+","+split[1]+",DeliveryDate").value;
           updateValuesRange.push(x);
         }
 
@@ -217,6 +217,7 @@
           var yy = 1;
           for(i = getTable.rows.length -1; i > 0 ; i--)
           {
+            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
             getTable.rows[yy].cells.item(11).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Decline</button>";
             yy++;
           }
