@@ -1,300 +1,321 @@
+
+<!doctype html> 
 <html>
-  <head>
-    <title>Declined</title>
-     <link rel="icon" href="pageIcon.png" type="image/gif" sizes="16x16">
-  <style>
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: auto;
-      min-width: 50%;
-    }
-    
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: left;
-      padding: 8px;
-    }
-    
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
-    </style>
-  </head>
-  <body>
-    <!--
-    BEFORE RUNNING:
-    ---------------
-    1. If not already done, enable the Google Sheets API
-       and check the quota for your project at
-       https://console.developers.google.com/apis/api/sheets
-    2. Get access keys for your application. See
-       https://developers.google.com/api-client-library/javascript/start/start-js#get-access-keys-for-your-application
-    3. For additional information on authentication, see
-       https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
-    -->
-    <script>
-      function RedirectPaging() {
-  var x = document.getElementById("NavigateToPages").value;
-  if(x == "2")
-  {
-  	 location.replace("https://catcatzz.github.io/CMSGsheet/OrderAccepted.html");
-  }  
-  if(x == "1"){
-    location.replace("https://catcatzz.github.io/CMSGsheet/OrderReviewPage.html");
+<head>
+<meta charset="utf-8"/>
+<title>Order Review</title>
+<link href="dist/the-datepicker.css" rel="stylesheet" />
+<link rel="icon" href="pageIcon.png" type="image/gif" sizes="16x16">
+<script src="dist/the-datepicker.js"></script>
+<link href="aa.css" rel="stylesheet" type="text/css"/>
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: auto;
+    min-width: 1360px;
+    overflow-x: auto;
   }
-  if(x == "3"){
-    location.replace("https://catcatzz.github.io/CMSGsheet/OrderDeclined.html");
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  } 
+  tr:nth-child(even) {
+    background-color: #dddddd;
   }
-  if(x == "4"){
-    location.replace("https://catcatzz.github.io/CMSGsheet/OrderHistory.html");
-  }
- 
+  </style>
+</head>
+<div id="cat" style="width: 95%;">
+<body> 
+<img src="1.jpg" id='11' class="123" width="100%" height="200px" alt="banner">
+<header>
+<ul id="qwe" class="navigation">
+<li><a href="https://catcatzz.github.io/CMSGsheet/OrderReviewPage.html">Order Review</a></li>    
+    <li><a href="https://catcatzz.github.io/CMSGsheet/OrderAccepted.html">Order Accepted</a></li>    
+    <li><a href="https://catcatzz.github.io/CMSGsheet/OrderDeclined.html" class="white">Order Declined</a></li>	
+    <li><a href="https://catcatzz.github.io/CMSGsheet/OrderHistory.html" class="block">Order History</a></li>
+    <li><a href="https://catcatzz.github.io/CMSGsheet/AboutUs.html">ABOUT US</a></li>
+    <li><a href="logout.php" class="block">LOGOUT</a></li>
+</ul> 
+</header>
+
+
+<script>
+  function RedirectPaging() {
+var x = document.getElementById("NavigateToPages").value;
+if(x == "2")
+{
+ location.replace("https://catcatzz.github.io/CMSGsheet/OrderAccepted.html");
+}  
+if(x == "1"){
+location.replace("https://catcatzz.github.io/CMSGsheet/OrderReviewPage.html");
 }
-          function makeApiCall() {
-      var params = {       
-        spreadsheetId: '1IJMpuhD9_BDoMfeuuBUKtmpxMmPOUZ_9gFV4nYWXEJ0',     
-        range: 'Sheet1',  
+if(x == "3"){
+location.replace("https://catcatzz.github.io/CMSGsheet/OrderDeclined.html");
+}
+if(x == "4"){
+location.replace("https://catcatzz.github.io/CMSGsheet/OrderHistory.html");
+}
 
-      };
+}
+      function makeApiCall() {
+  var params = {       
+    spreadsheetId: '1IJMpuhD9_BDoMfeuuBUKtmpxMmPOUZ_9gFV4nYWXEJ0',     
+    range: 'Sheet1',  
 
-      var request = gapi.client.sheets.spreadsheets.values.get(params);
-      request.then(function(response) {
-      
-         var tableKoUHtarDar = document.getElementById("UserTable");
-        var values = response.result.values;
-    var i ;
-    let y = 1;
-    for(i = values.length -1; i>0 ; i--){
-    var rowCreate = document.createElement('tr');
-   
-    for(g = 0; g < 12; g++)
+  };
+
+  var request = gapi.client.sheets.spreadsheets.values.get(params);
+  request.then(function(response) {
+  
+     var tableKoUHtarDar = document.getElementById("UserTable");
+    var values = response.result.values;
+var i ;
+let y = 1;
+for(i = values.length -1; i>0 ; i--){
+var rowCreate = document.createElement('tr');
+
+for(g = 0; g < 12; g++)
+{
+    var tdCreate =  rowCreate.insertCell(g);
+    if(g == 0)
     {
-        var tdCreate =  rowCreate.insertCell(g);
-        if(g == 0)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-        if(g == 1)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }  
-        if(g == 2)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }   
-        if(g == 3)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        } 
-        if(g == 4)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        } 
-        if(g == 5)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        } 
-         if(g == 6)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-        if(g == 7)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-        if(g == 8)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-        if(g == 9)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-        if(g == 10)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-        if(g == 11)
-        {
-            tdCreate.innerHTML =values[i][g] ;
-        }
-       
-       
+        tdCreate.innerHTML =values[i][g] ;
+    }
+    if(g == 1)
+    {
+        tdCreate.innerHTML =values[i][g] ;
     }  
-    tableKoUHtarDar.appendChild(rowCreate);
-    y++;
-}
-        console.log(response.result.values);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
-    }
-    function DeleteARow(startIndexNo) {
-      var params = {
-        
-        spreadsheetId: '1DaoYXq2phFumQwZIX5ylA2-BTJ7Vqsf4rtSFj_3NUVs',  
-      };
-
-      var batchUpdateSpreadsheetRequestBody = {
-        
-        requests: [[
+    if(g == 2)
     {
-      "deleteDimension": {
-        "range": {
-          "sheetId": 0,
-          "dimension": "ROWS",
-          "startIndex": parseInt(startIndexNo),
-          "endIndex": parseInt(startIndexNo) + 1
-        }
-      }
-    }]],  
-      };
-
-      var request = gapi.client.sheets.spreadsheets.batchUpdate(params, batchUpdateSpreadsheetRequestBody);
-      request.then(function(response) {
-        // TODO: Change code below to process the `response` object:
-        console.log(response.result);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
+        tdCreate.innerHTML =values[i][g] ;
+    }   
+    if(g == 3)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    } 
+    if(g == 4)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    } 
+    if(g == 5)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    } 
+     if(g == 6)
+    {
+        tdCreate.innerHTML =values[i][g] ;
     }
-    function UpdateCMS(clicked_id) {
-      var split = clicked_id.split(",");
-      var valuesIndex = parseInt(split[0]) +1;
-      var getRowIndex = parseInt(split[1]);
-      var GetTable = document.getElementById("UserTable");
-      var updateValuesRange = new Array();
-      var today = new Date();
-      var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
-      for(g = 0; g < 11; g++)
-      {
-        if(g == 10){
-          var valueRange ="2";
-          if(split[2] == "Failed"){
-            valueRange = "0";
-          }
-          updateValuesRange.push(valueRange);
-        }
-        else if (g == 9){
-          updateValuesRange.push(date);
-        }
-        else{
-          updateValuesRange.push(GetTable.rows[getRowIndex].cells[g].innerHTML)
-        }
-     
-      }
-      var spreadSheetIDValues= "1OBn4kH41c2zO_maDFG4QMVJYT9vg6ThCXvKqv4Oo8KE";
+    if(g == 7)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    }
+    if(g == 8)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    }
+    if(g == 9)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    }
+    if(g == 10)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    }
+    if(g == 11)
+    {
+        tdCreate.innerHTML =values[i][g] ;
+    }
+   
+   
+}  
+tableKoUHtarDar.appendChild(rowCreate);
+y++;
+}
+    console.log(response.result.values);
+  }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+  });
+}
+function DeleteARow(startIndexNo) {
+  var params = {
+    
+    spreadsheetId: '1DaoYXq2phFumQwZIX5ylA2-BTJ7Vqsf4rtSFj_3NUVs',  
+  };
+
+  var batchUpdateSpreadsheetRequestBody = {
+    
+    requests: [[
+{
+  "deleteDimension": {
+    "range": {
+      "sheetId": 0,
+      "dimension": "ROWS",
+      "startIndex": parseInt(startIndexNo),
+      "endIndex": parseInt(startIndexNo) + 1
+    }
+  }
+}]],  
+  };
+
+  var request = gapi.client.sheets.spreadsheets.batchUpdate(params, batchUpdateSpreadsheetRequestBody);
+  request.then(function(response) {
+    // TODO: Change code below to process the `response` object:
+    console.log(response.result);
+  }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+  });
+}
+function UpdateCMS(clicked_id) {
+  var split = clicked_id.split(",");
+  var valuesIndex = parseInt(split[0]) +1;
+  var getRowIndex = parseInt(split[1]);
+  var GetTable = document.getElementById("UserTable");
+  var updateValuesRange = new Array();
+  var today = new Date();
+  var date =today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
+  for(g = 0; g < 11; g++)
+  {
+    if(g == 10){
+      var valueRange ="2";
       if(split[2] == "Failed"){
-        spreadSheetIDValues = "1IJMpuhD9_BDoMfeuuBUKtmpxMmPOUZ_9gFV4nYWXEJ0";
+        valueRange = "0";
       }
+      updateValuesRange.push(valueRange);
+    }
+    else if (g == 9){
+      updateValuesRange.push(date);
+    }
+    else{
+      updateValuesRange.push(GetTable.rows[getRowIndex].cells[g].innerHTML)
+    }
+ 
+  }
+  var spreadSheetIDValues= "1OBn4kH41c2zO_maDFG4QMVJYT9vg6ThCXvKqv4Oo8KE";
+  if(split[2] == "Failed"){
+    spreadSheetIDValues = "1IJMpuhD9_BDoMfeuuBUKtmpxMmPOUZ_9gFV4nYWXEJ0";
+  }
 
-      var appendParam = {
-       
-        spreadsheetId: spreadSheetIDValues,  
-      
-        range: 'Sheet1', 
-      
-        valueInputOption: 'USER_ENTERED',  
-       
-        insertDataOption: 'INSERT_ROWS',  
-      };
+  var appendParam = {
+   
+    spreadsheetId: spreadSheetIDValues,  
+  
+    range: 'Sheet1', 
+  
+    valueInputOption: 'USER_ENTERED',  
+   
+    insertDataOption: 'INSERT_ROWS',  
+  };
 
-      var AppendvalueRangeBody = {
-        "values": [updateValuesRange]
-      };
-      var getTable = document.getElementById("UserTable");
-      var request = gapi.client.sheets.spreadsheets.values.append(appendParam, AppendvalueRangeBody);
-      request.then(function(response) {
-        if(response.result.updates.updatedRows == '1')
-        {
-          document.getElementById("UserTable").deleteRow(parseInt(split[1]));
-          var i ;
-          var yy = 1;
-          for(i = getTable.rows.length -1; i > 0 ; i--)
-          {
-            getTable.rows[yy].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Success</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Failed>Failed</button>";
-            yy++;
-          }
-        }
-        console.log(getTable.rows.length);
-      }, function(reason) {
-        console.error('error: ' + reason.result.error.message);
-      });
+  var AppendvalueRangeBody = {
+    "values": [updateValuesRange]
+  };
+  var getTable = document.getElementById("UserTable");
+  var request = gapi.client.sheets.spreadsheets.values.append(appendParam, AppendvalueRangeBody);
+  request.then(function(response) {
+    if(response.result.updates.updatedRows == '1')
+    {
+      document.getElementById("UserTable").deleteRow(parseInt(split[1]));
+      var i ;
+      var yy = 1;
+      for(i = getTable.rows.length -1; i > 0 ; i--)
+      {
+        getTable.rows[yy].cells.item(10).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Success</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Failed>Failed</button>";
+        yy++;
+      }
+    }
+    console.log(getTable.rows.length);
+  }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
+  });
 
-      DeleteARow(valuesIndex-1);
+  DeleteARow(valuesIndex-1);
+ 
+  
+
+}
+
+function initClient() {
+  var API_KEY = 'AIzaSyDci27Yunl538epN2GMj2NMDEbY9KOLD2Y'; 
+
+  var CLIENT_ID = '621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com'; 
+
+  var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
+
+  gapi.client.init({
+    'apiKey': API_KEY,
+    'clientId': CLIENT_ID,
+    'scope': SCOPE,
+    'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
+  }).then(function() {
+    gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
+    updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+  });
+}
+
+function handleClientLoad() {
+  gapi.load('client:auth2', initClient);
+}
+
+function updateSignInStatus(isSignedIn) {
+  if (isSignedIn) {
+    makeApiCall();
+  }
+}
+
+function handleSignInClick(event) {
+  gapi.auth2.getAuthInstance().signIn();
+}
+
+function handleSignOutClick(event) {
+  gapi.auth2.getAuthInstance().signOut();
+}
+</script>
+<script async defer src="https://apis.google.com/js/api.js"
+  onload="this.onload=function(){};handleClientLoad()"
+  onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+<br><br>
+    <div style="background:url(background.jpg); height:auto;min-height: 500px;width: auto;"><br><br>
+   <div style="height: auto;background-color: white;margin: auto;width: 95%; padding: 10px;border-radius: 20px;min-height: 380px;overflow-x:scroll ;">
+    <h2>Welcome!</h2>
+    <select id="NavigateToPages" onchange="RedirectPaging()">
+     <option value="3">Order Declined</option>
+      <option value="1">Order Review</option>
+     <option value="2">Order Accepted</option>
      
-      
-
-    }
-
-    function initClient() {
-      var API_KEY = 'AIzaSyDci27Yunl538epN2GMj2NMDEbY9KOLD2Y'; 
-
-      var CLIENT_ID = '621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com'; 
-
-      var SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
-
-      gapi.client.init({
-        'apiKey': API_KEY,
-        'clientId': CLIENT_ID,
-        'scope': SCOPE,
-        'discoveryDocs': ['https://sheets.googleapis.com/$discovery/rest?version=v4'],
-      }).then(function() {
-        gapi.auth2.getAuthInstance().isSignedIn.listen(updateSignInStatus);
-        updateSignInStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-      });
-    }
-
-    function handleClientLoad() {
-      gapi.load('client:auth2', initClient);
-    }
-
-    function updateSignInStatus(isSignedIn) {
-      if (isSignedIn) {
-        makeApiCall();
-      }
-    }
-
-    function handleSignInClick(event) {
-      gapi.auth2.getAuthInstance().signIn();
-    }
-
-    function handleSignOutClick(event) {
-      gapi.auth2.getAuthInstance().signOut();
-    }
-    </script>
-    <script async defer src="https://apis.google.com/js/api.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-     <h2>Welcome!</h2>
-     <select id="NavigateToPages" onchange="RedirectPaging()">
-      <option value="3">Order Declined</option>
-       <option value="1">Order Review</option>
-      <option value="2">Order Accepted</option>
-      
-      <option value="4">Order History</option>
-    </select>
+     <option value="4">Order History</option>
+   </select>
 <table ID="UserTable">
-    <tr>
-      <th>UserID</th>
-       <th>User Name</th>
-      <th>Phone No</th>
-      <th>Product</th>
-      <th>Quantity</th>
-       <th>Amount</th>
-       <th>Address</th>
-       <th>Order Date</th>
-       <th>Remark</th>
-       <th>Delivery Date</th>
-       <th>Declined Date</th>
-        <th>Status</th>   
-    </tr>
-      
-  </table><br>
-    <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
-    <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
-    <button id="Updatebutton" onclick="UpdateCMS()">Update</button>
-  </body>
+   <tr>
+     <th>UserID</th>
+      <th>User Name</th>
+     <th>Phone No</th>
+     <th>Product</th>
+     <th>Quantity</th>
+      <th>Amount</th>
+      <th>Address</th>
+      <th>Order Date</th>
+      <th>Remark</th>
+      <th>Delivery Date</th>
+      <th>Declined Date</th>
+       <th>Status</th>   
+   </tr>
+     
+ </table><br>
+ 
+
+
+   <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
+   <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
+   <button id="Updatebutton" onclick="UpdateCMS()">Update</button>
+
+</div>
+</div>
+
+<footer style="width: 100%;">
+Page Created by: Kaung Htet Copyright &copy; <a href="www.gmail.com" class="footer">Myokaunghtet@gmail.com</a>!
+</footer>
+</body>
 </html>
