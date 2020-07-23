@@ -337,7 +337,7 @@
   <script>
     function onSuccess(googleUser) {
       document.getElementById('GoogleName').innerHTML = "Welcome "+ googleUser.getBasicProfile().getName();
-      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+      document.getElementById('my-signin2').style.display = "none";
     }
     function onFailure(error) {
       console.log(error);
