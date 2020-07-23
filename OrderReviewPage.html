@@ -219,7 +219,7 @@
           {
             const input = document.getElementsByClassName('DateClass');
 
-            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' value='"+input.value+"' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
+            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' value='"+input[yy].value+"' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
             getTable.rows[yy].cells.item(11).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Decline</button>";
             
             var getYvalue = parseInt(yy);
