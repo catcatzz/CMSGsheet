@@ -174,10 +174,10 @@
       var date = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()+' '+  today.getDate() +'-'+(today.getMonth()+1) +'-' +  today.getFullYear();
       for(g = 0; g < 11; g++)
       {
-        if(g == 10){
+        if(g == 11){
           var valueRange ="Accepted";
           if(split[2] == "Decline"){
-            valueRange = "Decline";
+            valueRange = "Declined";
           }
           updateValuesRange.push(valueRange);
         }
@@ -185,7 +185,9 @@
           var x = document.getElementById(split[0]+","+split[1]+",DeliveryDate").value;
           updateValuesRange.push(x);
         }
-
+        else if (g == 10){         
+          updateValuesRange.push(date);
+        }
         else{
           updateValuesRange.push(GetTable.rows[getRowIndex].cells[g].innerHTML);
         }
