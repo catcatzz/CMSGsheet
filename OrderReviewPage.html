@@ -128,7 +128,7 @@
 }
     
 
-       
+        console.log(response.result.values);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
@@ -158,7 +158,7 @@
       var request = gapi.client.sheets.spreadsheets.batchUpdate(params, batchUpdateSpreadsheetRequestBody);
       request.then(function(response) {
        
-      
+        console.log(response.result);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
@@ -191,7 +191,7 @@
         }
      
       }
-    
+      console.log(updateValuesRange);
       var spreadSheetIDValues= "18fKDBzrtCD_b1aS778Nh7Hmi05pw3vxiUjbGpxiwvlw";
       if(split[2] == "Decline"){
         spreadSheetIDValues = "1IJMpuhD9_BDoMfeuuBUKtmpxMmPOUZ_9gFV4nYWXEJ0";
@@ -212,34 +212,16 @@
       request.then(function(response) {
         if(response.result.updates.updatedRows == '1')
         {
-          const inputBefore = document.getElementsByClassName('DateClass');
-          var getDateValues = new Array();
-          for(i = 1; i < getTable.rows.length ; i++)
-          {               
-            var ValueOfDateBefore = document.getElementById(inputBefore[i].id).value;
-              getDateValues.push(x);
-          }
-          console.log(getDateValues);
-
-
           document.getElementById("UserTable").deleteRow(parseInt(split[1]));
           var i ;
           var yy = 1;
           for(i = getTable.rows.length -1; i > 0 ; i--)
           {
-            
-            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' value='' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
+            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
             getTable.rows[yy].cells.item(11).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Decline</button>";
-            
-            
-            const input = document.getElementsByClassName('DateClass');
-            var ValueOfDate = document.getElementById(input[yy].id).value;
-
-
-            
             var getYvalue = parseInt(yy);
             var ForInputDate = getYvalue -1;
-            
+            const input = document.getElementsByClassName('DateClass');
             const datepicker = new TheDatepicker.Datepicker(input[ForInputDate]);
             datepicker.render();
 
@@ -249,7 +231,7 @@
             yy++;
           }
         }
-       
+        console.log(getTable.rows.length);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
       });
