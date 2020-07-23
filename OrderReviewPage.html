@@ -212,15 +212,34 @@
       request.then(function(response) {
         if(response.result.updates.updatedRows == '1')
         {
+          var getDateValues = new Array();
+          for(i = 1; i < getTable.rows.length -1 ; i++)
+          {
+            if(i = 9){                
+              var x = document.getElementById(split[0]+","+split[1]+",DeliveryDate").value;
+              getDateValues.push(x);
+            }
+            else{
+              getDateValues.push(getTable.rows[i].cells[9].innerHTML);
+            }
+          }
+          console.log(getDateValues);
+
+
           document.getElementById("UserTable").deleteRow(parseInt(split[1]));
           var i ;
           var yy = 1;
           for(i = getTable.rows.length -1; i > 0 ; i--)
           {
+            
+            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' value='' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
+            getTable.rows[yy].cells.item(11).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Decline</button>";
+            
+            
             const input = document.getElementsByClassName('DateClass');
             var ValueOfDate = document.getElementById(input[yy].id).value;
-            getTable.rows[yy].cells.item(9).innerHTML = "<input type='text' id='"+ [i]+","+yy+",DeliveryDate' value='"+ValueOfDate+"' class='DateClass' style='background-color: #FFFFCC;'' onchange='myFunction(this.id)''>";
-            getTable.rows[yy].cells.item(11).innerHTML ="<button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+[i] +","+yy+",Accept>Accept</button> <button type='button' onclick='UpdateCMS(this.id)' style=' color: white;background-color: rgba(54,127,169,.945);border-radius: 15px;' id="+ [i]+","+yy +",Decline>Decline</button>";
+
+
             console.log(input[yy].value)
             var getYvalue = parseInt(yy);
             var ForInputDate = getYvalue -1;
