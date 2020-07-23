@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <title>Order Review</title>
+ <meta name="google-signin-client_id" content="621453896908-i0e7fg5hdb17ejalp6cjjgd0imcd9r1h.apps.googleusercontent.com.apps.googleusercontent.com">
 <link href="dist/the-datepicker.css" rel="stylesheet" />
 <link rel="icon" href="pageIcon.png" type="image/gif" sizes="16x16">
 <script src="dist/the-datepicker.js"></script>
@@ -335,7 +336,28 @@
 
 </div>
 </div>
+<div id="my-signin2"></div>
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
 
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 <footer style="width: 100%;">
 Page Created by: Kaung Htet Copyright &copy; <a href="www.gmail.com" class="footer">Myokaunghtet@gmail.com</a>!
 </footer>
