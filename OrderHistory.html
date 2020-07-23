@@ -22,17 +22,7 @@
     </style>
   </head>
   <body>
-    <!--
-    BEFORE RUNNING:
-    ---------------
-    1. If not already done, enable the Google Sheets API
-       and check the quota for your project at
-       https://console.developers.google.com/apis/api/sheets
-    2. Get access keys for your application. See
-       https://developers.google.com/api-client-library/javascript/start/start-js#get-access-keys-for-your-application
-    3. For additional information on authentication, see
-       https://developers.google.com/sheets/api/quickstart/js#step_2_set_up_the_sample
-    -->
+
     <script>
      function RedirectPaging() {
   var x = document.getElementById("NavigateToPages").value;
@@ -68,7 +58,7 @@
     for(i = values.length -1; i>0 ; i--){
     var rowCreate = document.createElement('tr');
    
-    for(g = 0; g < 10; g++)
+    for(g = 0; g < 12; g++)
     {
         var tdCreate =  rowCreate.insertCell(g);
         if(g == 0)
@@ -111,7 +101,14 @@
         {
             tdCreate.innerHTML =values[i][g] ;
         }
-       
+        if(g == 10)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }
+        if(g == 11)
+        {
+            tdCreate.innerHTML =values[i][g] ;
+        }       
        
     }  
     tableKoUHtarDar.appendChild(rowCreate);
@@ -279,6 +276,8 @@
        <th>Address</th>
        <th>Order Date</th>
        <th>Remark</th>
+       <th>Delivery Date</th>
+       <th>Delivered Date</th>
         <th>Status</th>   
       
 
