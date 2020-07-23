@@ -290,6 +290,8 @@
 
    function handleSignOutClick(event) {
      gapi.auth2.getAuthInstance().signOut();
+     location.reload();
+    return false;
    }
    </script>
    <script async defer src="https://apis.google.com/js/api.js"
