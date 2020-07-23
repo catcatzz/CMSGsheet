@@ -212,10 +212,11 @@
       request.then(function(response) {
         if(response.result.updates.updatedRows == '1')
         {
+          const inputBefore = document.getElementsByClassName('DateClass');
           var getDateValues = new Array();
-          for(i = 1; i < getTable.rows.length -1 ; i++)
+          for(i = 1; i < getTable.rows.length ; i++)
           {               
-              var x = document.getElementById(split[0]+","+split[1]+",DeliveryDate").value;
+            var ValueOfDateBefore = document.getElementById(inputBefore[i].id).value;
               getDateValues.push(x);
           }
           console.log(getDateValues);
